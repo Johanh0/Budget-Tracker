@@ -1,0 +1,22 @@
+{
+  "name": "budget-tracker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sass": "npm run node-sass -w src/scss -o src/css --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johanh0/Budget-Tracker.git"
+  },
+  "author": "Johan Herrera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Johanh0/Budget-Tracker/issues"
+  },
+  "homepage": "https://github.com/Johanh0/Budget-Tracker#readme",
+  "description": "",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
