@@ -1,0 +1,40 @@
+.budget {
+  @include full-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: white;
+  border-radius: 20px;
+
+  .budget__chart,
+  .budget__summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+
+  //   .budget__chart {
+
+  //   }
+
+  .budget__summary {
+    text-align: end;
+    align-items: end;
+    gap: 40px;
+
+    h3 {
+      font-size: map-get($font-size, lg);
+    }
+
+    p {
+      font-size: map-get($font-size, md);
+    }
+  }
+
+  .budget__chart {
+    align-items: center;
+  }
+}

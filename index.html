@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="./src/js/app.js" type="module" defer></script>
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <title>Budget Tracker</title>
+  </head>
+  <body>
+    <header>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section class="budget">
+        <div class="budget__chart">CHART</div>
+        <div class="budget__summary">
+          <div>
+            <h3>Income</h3>
+            <p id="">0</p>
+          </div>
+          <div>
+            <h3>Expenses</h3>
+            <p id>0</p>
+          </div>
+          <div>
+            <h3>Total</h3>
+            <p>0</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="expenses">
+        <div class="expenses__list">
+          <ul>
+            <li>
+              <article class="expense__container">
+                <div class="expense__container--icon">
+                  <img src="" alt="icon" />
+                </div>
+                <div class="expense__container--title">
+                  <p>Netflix</p>
+                </div>
+                <div class="expense__container--price">
+                  <p>$10</p>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </article>
+
+              <article class="expense__container">
+                <div class="expense__container--icon">
+                  <img src="" alt="icon" />
+                </div>
+                <div class="expense__container--title">
+                  <p>Netflix</p>
+                </div>
+                <div class="expense__container--price">
+                  <p>$10</p>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </article>
+
+              <article class="expense__container">
+                <div class="expense__container--icon">
+                  <img src="" alt="icon" />
+                </div>
+                <div class="expense__container--title">
+                  <p>Netflix</p>
+                </div>
+                <div class="expense__container--price">
+                  <p>$10</p>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </article>
+
+              <article class="expense__container">
+                <div class="expense__container--icon">
+                  <img src="" alt="icon" />
+                </div>
+                <div class="expense__container--title">
+                  <p>Netflix</p>
+                </div>
+                <div class="expense__container--price">
+                  <p>$10</p>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="budget__modal">
+        <article class="modal">
+          <div class="modal--close__icon">
+            <i class="fa-solid fa-x"></i>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <div class="add__container">
+        <button class="add__container--btn">Add</button>
+      </div>
+    </footer>
+  </body>
+</html>

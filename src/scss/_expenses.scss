@@ -1,0 +1,43 @@
+.expenses {
+  @include full-container;
+  margin: 0 auto;
+  margin-top: 50px;
+
+  ul {
+    list-style: none;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    li .expense__container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+      height: fit-content;
+      padding: 15px 20px;
+      background-color: map-get($colors, secondary-color);
+      border-radius: 15px;
+
+      .expense__container--icon {
+      }
+      .expense__container--title {
+        flex: 1;
+        font-size: map-get($font-size, md);
+      }
+      .expense__container--price {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: map-get($font-size, sm);
+
+        .fa-ellipsis-vertical {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

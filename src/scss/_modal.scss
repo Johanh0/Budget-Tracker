@@ -1,0 +1,33 @@
+.budget__modal {
+  //   display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.691);
+
+  top: 0;
+  left: 0;
+
+  .modal {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px;
+
+    .modal--close__icon {
+      display: flex;
+      justify-content: end;
+
+      i {
+        font-size: map-get($font-size, sm);
+        cursor: pointer;
+      }
+    }
+  }
+}
