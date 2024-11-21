@@ -22,8 +22,8 @@
       background-color: map-get($colors, secondary-color);
       border-radius: 15px;
 
-      .expense__container--icon {
-      }
+      //   .expense__container--icon {
+      //   }
       .expense__container--title {
         flex: 1;
         font-size: map-get($font-size, md);

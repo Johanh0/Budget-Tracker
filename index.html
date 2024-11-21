@@ -103,6 +103,41 @@
           <div class="modal--close__icon">
             <i class="fa-solid fa-x"></i>
           </div>
+          <div>
+            <form class="budget__form">
+              <div class="budget__form--quantity--type">
+                <select name="" id="quantity--type">
+                  <option value="income">Income</option>
+                  <option value="expense">Expense</option>
+                </select>
+                <div class="budget__form--quantity--money">
+                  <p>$</p>
+                  <input type="text" id="input--quantity--money" />
+                </div>
+              </div>
+              <div class="budget__form--info">
+                <div class="budget__form--name">
+                  <label for="name">Name</label>
+                  <input type="text" id="input--budget--name" />
+                </div>
+                <div class="budget__form--categories">
+                  <label for="category">Category</label>
+                  <select name="category" id="category">
+                    <option value="house">House</option>
+                    <option value="food">Food</option>
+                    <option value="health">Health</option>
+                    <option value="transportation">Transportation</option>
+                    <option value="saving">Saving</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="budget__form--submit">
+                <input type="submit" value="Submit" />
+              </div>
+            </form>
+          </div>
         </article>
       </section>
     </main>
