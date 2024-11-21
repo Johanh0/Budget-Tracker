@@ -1,3 +1,0 @@
-class Auth {}
-
-export { Auth };
