@@ -10,6 +10,18 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+
+      .income--type {
+        .expense__container--price {
+          color: green;
+        }
+      }
+
+      .expense--type {
+        .expense__container--price {
+          color: red;
+        }
+      }
     }
 
     li .expense__container {
@@ -26,16 +38,18 @@
       //   }
       .expense__container--title {
         flex: 1;
-        font-size: map-get($font-size, md);
+        font-size: map-get($font-size, lg);
       }
       .expense__container--price {
         display: flex;
         align-items: center;
         gap: 20px;
-        font-size: map-get($font-size, sm);
+        font-size: map-get($font-size, md);
+        font-weight: bold;
 
         .fa-ellipsis-vertical {
           cursor: pointer;
+          color: black;
         }
       }
     }

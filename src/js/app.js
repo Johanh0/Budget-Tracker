@@ -6,6 +6,9 @@ const budgetModalElement = document.querySelector(".budget__modal");
 const addBudgetBtn = document.querySelector(".add__container--btn");
 const closeModalIcon = document.querySelector(".fa-x");
 
+// Expense list element
+const expenseListElement = document.querySelector(".expenses__list ul li");
+
 // Elements from the modal view
 const typeBudgeElement = document.querySelector("#quantity--type");
 const inputQuantity = document.querySelector("#input--quantity--money");
@@ -17,8 +20,21 @@ const submitBudget = document.querySelector(".submit--budget");
 document.addEventListener("DOMContentLoaded", handleCategories);
 typeBudgeElement.addEventListener("change", handleCategories);
 
+// Budget Elements
+const incomeResultElement = document.querySelector(
+  ".budget__summary--income p"
+);
+const expenseResultElement = document.querySelector(
+  ".budget__summary--expense p"
+);
+const totalResultElement = document.querySelector(".budget__summary--total p");
+
+console.log(incomeResultElement);
+console.log(expenseResultElement);
+console.log(totalResultElement);
+
 // Budget class initialization
-const budget = new Budget(0, []);
+const budget = new Budget(0, [], 0, 0);
 
 // After load the HTML create an user and save it into the localStorage
 // document.addEventListener("DOMContentLoaded", () => {
@@ -50,13 +66,26 @@ submitBudget.addEventListener("click", (event) => {
     category: categoryValue,
   };
 
+  switch (typeBudgeElement.value) {
+    case "income":
+      expenseObj.type = "income";
+      break;
+    case "expense":
+      expenseObj.type = "expense";
+      break;
+  }
+
   budget.addExpense(expenseObj);
 
   //   Cleaning inputs
   inputQuantity.value = "";
   inputName.value = "";
 
-  console.log(budget);
+  //   Add expense
+  addExpenses(budget.expensesList);
+
+  updateBudget();
+  closeModal();
 });
 
 // Event listeners
@@ -111,4 +140,42 @@ function handleCategories() {
   }
 
   //   console.log(typeBudgeElement.value);
+}
+
+// Add dynamically the expenses into the HTML
+function addExpenses(expenseArr) {
+  // Clean the expenses list
+  expenseListElement.innerHTML = ``;
+  console.log(expenseArr);
+
+  //   Add each expense into the list
+  expenseArr.forEach((expense) => {
+    const expenseType =
+      expense.type === "income" ? "income--type" : "expense--type";
+
+    const isSymbolNeeded = expense.type === "expense" ? "-" : "";
+
+    expenseListElement.innerHTML += `
+        <article class="expense__container ${expenseType}">
+            <div class="expense__container--icon">
+                <img src="src/assets/icons/${expense.category}.svg" alt="icon" />
+            </div>
+            <div class="expense__container--title">
+                <p>${expense.name}</p>
+            </div>
+            <div class="expense__container--price">
+                <p>$ ${isSymbolNeeded}${expense.value}</p>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+        </article>
+    `;
+  });
+}
+
+// Update the budget
+function updateBudget() {
+  incomeResultElement.textContent = budget.incomeValue;
+  expenseResultElement.textContent = budget.expenseValue;
+
+  totalResultElement.textContent = budget.money;
 }

@@ -45,9 +45,9 @@ body :where(header, main, footer) {
     align-items: end;
     gap: 40px; }
     .budget .budget__summary h3 {
-      font-size: 3rem; }
+      font-size: 4rem; }
     .budget .budget__summary p {
-      font-size: 2rem; }
+      font-size: 3rem; }
   .budget .budget__chart {
     align-items: center; }
 
@@ -64,6 +64,10 @@ body :where(header, main, footer) {
       display: flex;
       flex-direction: column;
       gap: 20px; }
+      .expenses ul li .income--type .expense__container--price {
+        color: green; }
+      .expenses ul li .expense--type .expense__container--price {
+        color: red; }
     .expenses ul li .expense__container {
       display: flex;
       align-items: center;
@@ -75,14 +79,16 @@ body :where(header, main, footer) {
       border-radius: 15px; }
       .expenses ul li .expense__container .expense__container--title {
         flex: 1;
-        font-size: 2rem; }
+        font-size: 3rem; }
       .expenses ul li .expense__container .expense__container--price {
         display: flex;
         align-items: center;
         gap: 20px;
-        font-size: 1.5rem; }
+        font-size: 2rem;
+        font-weight: bold; }
         .expenses ul li .expense__container .expense__container--price .fa-ellipsis-vertical {
-          cursor: pointer; }
+          cursor: pointer;
+          color: black; }
 
 .budget__modal {
   display: flex;

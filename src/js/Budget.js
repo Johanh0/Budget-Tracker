@@ -1,27 +1,31 @@
 import User from "./User.js";
 
 class Budget extends User {
-  constructor(money, expenses, id) {
-    super(id), (this.money = money), (this.expenses = expenses);
+  constructor(money, expensesList, expenseValue, incomeValue, id) {
+    super(id),
+      (this.money = money),
+      (this.expensesList = expensesList),
+      (this.expenseValue = expenseValue),
+      (this.incomeValue = incomeValue);
   }
 
   calculateBudget(quantity, type) {
     switch (type) {
       case "income":
-        this.money = this.money + quantity;
+        const incomeResult = this.money + quantity;
+        this.money = incomeResult;
+        this.incomeValue = incomeResult;
         break;
       case "expense":
-        this.money = this.money - quantity;
+        const expenseResult = this.money - quantity;
+        this.money = expenseResult;
+        this.expenseValue = this.expenseValue - quantity;
         break;
     }
   }
 
-  getMoney() {
-    return this.money;
-  }
-
   addExpense(expense) {
-    this.expenses.push(expense);
+    this.expensesList.push(expense);
   }
 }
 
