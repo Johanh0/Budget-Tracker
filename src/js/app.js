@@ -1,4 +1,3 @@
-import User from "./User.js";
 import Budget from "./Budget.js";
 
 // Elements to manipulate the modal view
@@ -165,7 +164,10 @@ function addExpenses(expenseArr) {
             </div>
             <div class="expense__container--price">
                 <p>$ ${isSymbolNeeded}${expense.value}</p>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <div class="tooltip" role="tooltip"></div>
+                </div>
             </div>
         </article>
     `;
