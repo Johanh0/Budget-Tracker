@@ -1,4 +1,4 @@
-# **Your Project Name**
+# **Budget Tracker**
 
 This project is a **budget and expense tracking platform** designed to help users manage their personal finances. It allows users to track their income and expenses, view their financial summary, and visualize their budget with interactive charts. The platform is built with **HTML**, **SCSS**, **JavaScript**, **Node.js**, and **Chart.js**, offering an intuitive and user-friendly interface.
 
