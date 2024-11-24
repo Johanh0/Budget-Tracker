@@ -1,0 +1,49 @@
+.budget {
+  @include full-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: white;
+  border-radius: 20px;
+
+  .budget__chart,
+  .budget__summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .budget__summary {
+    text-align: end;
+    align-items: end;
+    gap: 40px;
+
+    h3 {
+      font-size: map-get($font-size, x-lg);
+    }
+
+    p {
+      font-size: map-get($font-size, lg);
+    }
+  }
+
+  .budget__chart {
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .budget {
+    flex-direction: column;
+    height: fit-content;
+    max-height: none;
+
+    .budget__summary {
+      text-align: center;
+      align-items: center;
+    }
+  }
+}

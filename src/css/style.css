@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+html {
+  font-size: 62.5%;
+  font-family: "Space Grotesk", serif; }
+
+body {
+  display: grid;
+  height: fit-content;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  color: #141c2f;
+  background: linear-gradient(135deg, #f7f8ff, #bcc5e3); }
+
+body :where(header, main, footer) {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px; }
+
+@media (max-width: 768px) {
+  body :where(header, main, footer) {
+    padding: 10px; } }
+
+.budget {
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: white;
+  border-radius: 20px; }
+  .budget .budget__chart,
+  .budget .budget__summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1; }
+  .budget .budget__summary {
+    text-align: end;
+    align-items: end;
+    gap: 40px; }
+    .budget .budget__summary h3 {
+      font-size: 4rem; }
+    .budget .budget__summary p {
+      font-size: 3rem; }
+  .budget .budget__chart {
+    align-items: center; }
+
+@media (max-width: 768px) {
+  .budget {
+    flex-direction: column;
+    height: fit-content;
+    max-height: none; }
+    .budget .budget__summary {
+      text-align: center;
+      align-items: center; } }
+
+.expenses {
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  max-height: 400px;
+  margin: 0 auto;
+  margin-top: 50px;
+  max-height: 200px !important;
+  overflow: scroll; }
+  .expenses ul {
+    list-style: none; }
+    .expenses ul li {
+      display: flex;
+      flex-direction: column;
+      gap: 20px; }
+      .expenses ul li .income--type .expense__container--price {
+        color: #52b788; }
+      .expenses ul li .expense--type .expense__container--price {
+        color: #ef233c; }
+    .expenses ul li .expense__container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+      height: fit-content;
+      padding: 15px 20px;
+      background-color: #fff;
+      border-radius: 15px; }
+      .expenses ul li .expense__container .expense__container--title {
+        flex: 1;
+        font-size: 3rem; }
+      .expenses ul li .expense__container .expense__container--price {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 2rem;
+        font-weight: bold; }
+        .expenses ul li .expense__container .expense__container--price .fa-trash {
+          cursor: pointer;
+          color: black;
+          padding: 10px;
+          border-radius: 5px; }
+          .expenses ul li .expense__container .expense__container--price .fa-trash:hover {
+            background-color: #ffc5cc;
+            color: #ef233c; }
+
+.budget__modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.691);
+  top: 0;
+  left: 0; }
+  .budget__modal .modal {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    height: fit-content;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px; }
+    .budget__modal .modal .modal--close__icon {
+      display: flex;
+      justify-content: end; }
+      .budget__modal .modal .modal--close__icon i {
+        font-size: 1.5rem;
+        cursor: pointer; }
+    .budget__modal .modal .budget__form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%; }
+      .budget__modal .modal .budget__form select,
+      .budget__modal .modal .budget__form input {
+        background-color: #f7f8ff;
+        border-radius: 5px;
+        padding: 0 0px;
+        cursor: pointer; }
+      .budget__modal .modal .budget__form select,
+      .budget__modal .modal .budget__form input,
+      .budget__modal .modal .budget__form p {
+        font-size: 2rem;
+        border: none;
+        padding: 5px; }
+      .budget__modal .modal .budget__form input {
+        outline: none;
+        width: 100%; }
+      .budget__modal .modal .budget__form .budget__form--quantity--type,
+      .budget__modal .modal .budget__form .budget__form--info {
+        display: flex;
+        gap: 30px;
+        width: 100%; }
+      .budget__modal .modal .budget__form .budget__form--quantity--type .budget__form--quantity--money {
+        display: flex;
+        align-items: center;
+        gap: 3px; }
+      .budget__modal .modal .budget__form .budget__form--quantity--money {
+        flex: 1;
+        gap: 10px; }
+        .budget__modal .modal .budget__form .budget__form--quantity--money p {
+          font-weight: bold; }
+      .budget__modal .modal .budget__form .budget__form--info .budget__form--name {
+        flex: 1; }
+      .budget__modal .modal .budget__form .budget__form--info div {
+        display: flex;
+        flex-direction: column; }
+        .budget__modal .modal .budget__form .budget__form--info div label {
+          font-weight: bold;
+          margin-bottom: 10px;
+          font-size: 2rem; }
+      .budget__modal .modal .budget__form .budget__form--submit input {
+        width: 100%;
+        padding: 20px;
+        border: none;
+        border-radius: 8px;
+        background-color: #0079fa;
+        color: #fff;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer; }
+        .budget__modal .modal .budget__form .budget__form--submit input:hover {
+          background-color: #068fff; }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+  footer .add__container {
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    max-height: 400px; }
+    footer .add__container .add__container--btn {
+      width: 100%;
+      padding: 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #0079fa;
+      color: #fff;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer; }
+      footer .add__container .add__container--btn:hover {
+        background-color: #068fff; }

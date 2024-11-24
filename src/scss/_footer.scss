@@ -1,0 +1,14 @@
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .add__container {
+    @include full-container;
+
+    .add__container--btn {
+      @include primary-btn;
+    }
+  }
+}
