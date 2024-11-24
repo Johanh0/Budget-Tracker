@@ -17,14 +17,13 @@ Key features include adding income/expenses, displaying them in a list, removing
 - **HTML**: Used to structure the content of the website.
 - **SCSS**: Styling is done with SCSS to ensure the project has modular, maintainable, and scalable styles.
 - **JavaScript**: Handles core functionality such as adding, deleting, and updating expenses, as well as updating charts dynamically.
-- **Node.js**: Used for the backend to manage the application’s logic, such as calculating the budget and storing expenses data.
 - **Chart.js**: A JavaScript library used to create dynamic and interactive charts that visualize the user's expenses and income.
 
 ### Deployment
 
 To try out the live version of the project, click the following link:
 
-[Live Demo](https://main.d1rmepzuj16x1r.amplifyapp.com/)
+[Live Demo](https://johanh0.github.io/Budget-Tracker/)
 
 ## Author
 
