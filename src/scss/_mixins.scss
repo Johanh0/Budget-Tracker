@@ -21,3 +21,7 @@
     background-color: map-get($colors, primary-hover-color);
   }
 }
+
+@mixin gradient($color1, $color2) {
+  background: linear-gradient(135deg, $color1, $color2);
+}

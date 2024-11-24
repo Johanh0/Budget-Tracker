@@ -14,13 +14,17 @@ body {
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
   color: #141c2f;
-  background-color: #f7f8ff; }
+  background: linear-gradient(135deg, #f7f8ff, #bcc5e3); }
 
 body :where(header, main, footer) {
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
   padding: 50px; }
+
+@media (max-width: 768px) {
+  body :where(header, main, footer) {
+    padding: 10px; } }
 
 .budget {
   width: 100%;
@@ -51,13 +55,24 @@ body :where(header, main, footer) {
   .budget .budget__chart {
     align-items: center; }
 
+@media (max-width: 768px) {
+  .budget {
+    flex-direction: column;
+    height: fit-content;
+    max-height: none; }
+    .budget .budget__summary {
+      text-align: center;
+      align-items: center; } }
+
 .expenses {
   width: 100%;
   height: 100%;
   max-width: 800px;
   max-height: 400px;
   margin: 0 auto;
-  margin-top: 50px; }
+  margin-top: 50px;
+  max-height: 200px !important;
+  overflow: scroll; }
   .expenses ul {
     list-style: none; }
     .expenses ul li {
@@ -65,9 +80,9 @@ body :where(header, main, footer) {
       flex-direction: column;
       gap: 20px; }
       .expenses ul li .income--type .expense__container--price {
-        color: green; }
+        color: #52b788; }
       .expenses ul li .expense--type .expense__container--price {
-        color: red; }
+        color: #ef233c; }
     .expenses ul li .expense__container {
       display: flex;
       align-items: center;
@@ -86,17 +101,23 @@ body :where(header, main, footer) {
         gap: 20px;
         font-size: 2rem;
         font-weight: bold; }
-        .expenses ul li .expense__container .expense__container--price .fa-ellipsis-vertical {
+        .expenses ul li .expense__container .expense__container--price .fa-trash {
           cursor: pointer;
-          color: black; }
+          color: black;
+          padding: 10px;
+          border-radius: 5px; }
+          .expenses ul li .expense__container .expense__container--price .fa-trash:hover {
+            background-color: #ffc5cc;
+            color: #ef233c; }
 
 .budget__modal {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
   background-color: rgba(0, 0, 0, 0.691);
   top: 0;
   left: 0; }

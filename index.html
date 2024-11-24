@@ -10,7 +10,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="./src/js/app.js" type="module" defer></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="./src/js/app.js" defer></script>
     <link rel="stylesheet" href="./src/css/style.css" />
     <title>Budget Tracker</title>
   </head>
@@ -21,7 +22,9 @@
 
     <main>
       <section class="budget">
-        <div class="budget__chart">CHART</div>
+        <div class="budget__chart">
+          <canvas id="budget--chart"></canvas>
+        </div>
         <div class="budget__summary">
           <div class="budget__summary--income">
             <h3>Income</h3>
@@ -42,18 +45,6 @@
         <div class="expenses__list">
           <ul>
             <li>
-              <!-- <article class="expense__container">
-                <div class="expense__container--icon">
-                  <img src="" alt="icon" />
-                </div>
-                <div class="expense__container--title">
-                  <p>Netflix</p>
-                </div>
-                <div class="expense__container--price">
-                  <p>$10</p>
-                  <i class="fa-solid fa-ellipsis-vertical"></i>
-                </div>
-              </article> -->
             </li>
           </ul>
         </div>
@@ -73,13 +64,13 @@
                 </select>
                 <div class="budget__form--quantity--money">
                   <p>$</p>
-                  <input type="text" id="input--quantity--money" />
+                  <input type="text" id="input--quantity--money" required/>
                 </div>
               </div>
               <div class="budget__form--info">
                 <div class="budget__form--name">
                   <label for="name">Name</label>
-                  <input type="text" id="input--budget--name" />
+                  <input type="text" id="input--budget--name" required/>
                 </div>
                 <div class="budget__form--categories">
                   <label for="category">Category</label>
@@ -100,5 +91,6 @@
         <button class="add__container--btn">Add</button>
       </div>
     </footer>
+
   </body>
 </html>

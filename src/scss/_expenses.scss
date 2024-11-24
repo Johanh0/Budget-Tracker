@@ -2,6 +2,9 @@
   @include full-container;
   margin: 0 auto;
   margin-top: 50px;
+  // padding: 30px 0;
+  max-height: 200px !important;
+  overflow: scroll;
 
   ul {
     list-style: none;
@@ -13,13 +16,13 @@
 
       .income--type {
         .expense__container--price {
-          color: green;
+          color: map-get($colors, green);
         }
       }
 
       .expense--type {
         .expense__container--price {
-          color: red;
+          color: map-get($colors, red);
         }
       }
     }
@@ -47,9 +50,21 @@
         font-size: map-get($font-size, md);
         font-weight: bold;
 
-        .fa-ellipsis-vertical {
+        .fa-trash {
+          // display: flex;
+          // justify-content: center;
+          // align-items: center;
           cursor: pointer;
           color: black;
+          padding: 10px;
+          border-radius: 5px;
+          // width: 30px;
+          // height: 30px;
+
+          &:hover {
+            background-color: map-get($colors, soft-red);
+            color: map-get($colors, red);
+          }
         }
       }
     }

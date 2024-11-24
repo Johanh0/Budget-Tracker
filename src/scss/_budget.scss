@@ -16,10 +16,6 @@
     flex: 1;
   }
 
-  //   .budget__chart {
-
-  //   }
-
   .budget__summary {
     text-align: end;
     align-items: end;
@@ -36,5 +32,18 @@
 
   .budget__chart {
     align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .budget {
+    flex-direction: column;
+    height: fit-content;
+    max-height: none;
+
+    .budget__summary {
+      text-align: center;
+      align-items: center;
+    }
   }
 }

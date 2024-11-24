@@ -1,5 +1,24 @@
 import Budget from "./Budget.js";
 
+// Budget class initialization
+const budget = new Budget(0, [], 0, 0);
+
+// Chart Element
+const chartCanvas = document.querySelector("#budget--chart");
+const chart = new Chart(chartCanvas, {
+  type: "doughnut",
+  data: {
+    labels: ["Income", "Expenses"],
+    datasets: [
+      {
+        label: "Budget",
+        data: [budget.incomeValue, budget.expenseValue],
+        backgroundColor: ["#52b788", "#ef233c"],
+      },
+    ],
+  },
+});
+
 // Elements to manipulate the modal view
 const budgetModalElement = document.querySelector(".budget__modal");
 const addBudgetBtn = document.querySelector(".add__container--btn");
@@ -28,24 +47,13 @@ const expenseResultElement = document.querySelector(
 );
 const totalResultElement = document.querySelector(".budget__summary--total p");
 
-console.log(incomeResultElement);
-console.log(expenseResultElement);
-console.log(totalResultElement);
-
-// Budget class initialization
-const budget = new Budget(0, [], 0, 0);
-
-// After load the HTML create an user and save it into the localStorage
-// document.addEventListener("DOMContentLoaded", () => {
-//   const isUserSave = localStorage.getItem("user");
-
-//   if (!isUserSave) {
-//     localStorage.setItem("user", JSON.stringify(user));
-//     return;
-//   }
-
-//   console.log();
-// });
+// Limit the input only to numbers
+inputQuantity.addEventListener("input", () => {
+  const inputRegex = /^\d*$/;
+  if (!inputRegex.test(inputQuantity.value)) {
+    inputQuantity.value = inputQuantity.value.replace(/[^0-9]/g, "");
+  }
+});
 
 // Event for submit the new budget expense / income
 submitBudget.addEventListener("click", (event) => {
@@ -57,12 +65,18 @@ submitBudget.addEventListener("click", (event) => {
   const inputNameValue = inputName.value;
   const categoryValue = typeCategoryElement.value.toLowerCase();
 
+  if (moneyValue <= 0 && inputNameValue === "") {
+    alert("You need to field all the inputs!");
+    return;
+  }
+
   //   Save values into the user object
   budget.calculateBudget(moneyValue, typeBudgetValue);
   const expenseObj = {
     name: inputNameValue,
     value: moneyValue,
     category: categoryValue,
+    id: crypto.randomUUID(),
   };
 
   switch (typeBudgeElement.value) {
@@ -85,6 +99,7 @@ submitBudget.addEventListener("click", (event) => {
 
   updateBudget();
   closeModal();
+  updateChart();
 });
 
 // Event listeners
@@ -137,15 +152,12 @@ function handleCategories() {
       generateCategories(expenseCategories);
       break;
   }
-
-  //   console.log(typeBudgeElement.value);
 }
 
 // Add dynamically the expenses into the HTML
 function addExpenses(expenseArr) {
   // Clean the expenses list
   expenseListElement.innerHTML = ``;
-  console.log(expenseArr);
 
   //   Add each expense into the list
   expenseArr.forEach((expense) => {
@@ -155,7 +167,7 @@ function addExpenses(expenseArr) {
     const isSymbolNeeded = expense.type === "expense" ? "-" : "";
 
     expenseListElement.innerHTML += `
-        <article class="expense__container ${expenseType}">
+        <article data-id="${expense.id}" class="expense__container ${expenseType}">
             <div class="expense__container--icon">
                 <img src="src/assets/icons/${expense.category}.svg" alt="icon" />
             </div>
@@ -164,13 +176,31 @@ function addExpenses(expenseArr) {
             </div>
             <div class="expense__container--price">
                 <p>$ ${isSymbolNeeded}${expense.value}</p>
-                <div>
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                    <div class="tooltip" role="tooltip"></div>
+                <div class="delete--btn">
+                    <i class="fa-solid fa-trash"></i>
                 </div>
             </div>
         </article>
     `;
+
+    deleteExpenses();
+  });
+}
+
+// Add Delete functionality
+function deleteExpenses() {
+  const allExpenses = document.querySelectorAll(".expense__container");
+
+  allExpenses.forEach((expense) => {
+    const removeBtn = expense.children[2].children[1];
+
+    removeBtn.addEventListener("click", () => {
+      const expenseId = expense.dataset.id;
+      expense.remove();
+      budget.removeExpense(expenseId);
+      updateBudget();
+      updateChart();
+    });
   });
 }
 
@@ -180,4 +210,10 @@ function updateBudget() {
   expenseResultElement.textContent = budget.expenseValue;
 
   totalResultElement.textContent = budget.money;
+}
+
+// Update chart
+function updateChart() {
+  chart.data.datasets[0].data = [budget.incomeValue, budget.expenseValue];
+  chart.update();
 }
